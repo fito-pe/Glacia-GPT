@@ -66,7 +66,7 @@ client.on('messageCreate', async (message) => {
     // especificamos el modelo que usamos
     const response = await openai.chat.completions
         .create({
-            model: 'gpt-3.5-turbo-0301',
+            model: 'gpt-4',
             messages: conversation,
         })
         .catch((error) => console.error('Error de OpenAI:\n', error));
