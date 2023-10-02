@@ -63,10 +63,10 @@ client.on('messageCreate', async (message) => {
 
     })
 
-    // especificamos el modelo que usamos, este bot: gpt-4
+    // especificamos el modelo que usamos
     const response = await openai.chat.completions
         .create({
-            model: 'gpt-4',
+            model: 'gpt-3.5-turbo-0301',
             messages: conversation,
         })
         .catch((error) => console.error('Error de OpenAI:\n', error));
@@ -74,10 +74,10 @@ client.on('messageCreate', async (message) => {
     clearInterval(sendTypingInterval);
     
     // que el bot responda en Discord en caso no haya respuesta de OpenAI
-    if (!response) {
-        message.reply('Estoy teniendo problemas con la API de OpenAI. Intenta nuevamente pronto.');
-        return;
-    }
+    //if (!response) {
+    //    message.reply('Estoy teniendo problemas con la API de OpenAI. Intenta nuevamente pronto.');
+    //    return;
+    //}
 
     // el límite de caracteres por mensaje para un bot en Discord es de 2K, para respuestas más largas partimos el contenido en partes de 2K antes de enviarlo a Discord
     const responseMessage = response.choices[0].message.content;
