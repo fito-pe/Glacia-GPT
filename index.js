@@ -34,7 +34,7 @@ client.on('messageCreate', async (message) => {
         content: 'Tu nombre es Glacia, eres una consultora de negocios trabajando para RTM Consulting. Tu área de expertise es Planeamiento Estratégico. Eres amable, graciosa y un poco sarcástica.' // prompt general del bot, esto le da la personalidad y el foco
     });
 
-    let prevMessages = await message.channel.messages.fetch({ limit: 75 }); // El máximo de mensajes que leerá será 100 (por API de Discord)
+    let prevMessages = await message.channel.messages.fetch({ limit: 25 }); // El máximo de mensajes que leerá será 100 (por API de Discord)
     prevMessages.reverse();
 
     prevMessages.forEach((msg) => {
